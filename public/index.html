@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galeri Piyasa — araç piyasanın kaç parası?</title>
+<meta name="description" content="Galericiler için sahibinden + arabam piyasa fiyat analizi. Medyan fiyat, p25–p75 bandı ve “bu araç kaç para” aralığı 30 saniyede.">
+<meta name="theme-color" content="#030507">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Galeri Piyasa — araç piyasanın kaç parası?">
+<meta property="og:description" content="sahibinden + arabam ilanlarından medyan fiyat, 30 saniyede. Galericiler için.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gallery.mfosec.xyz/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23030507'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-size='26' font-weight='800' fill='%23c8ff3c'%3E%5Bgp%5D%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip" href="#demo">Demoya geç</a>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a href="#top" class="brand"><span class="acc">[gp]</span> <span class="cursor">galeri_piyasa</span></a>
+    <nav aria-label="Bölümler" class="nav">
+      <a href="#demo">./demo</a>
+      <a href="#nasil">./nasil-calisir</a>
+      <a href="#ozellikler">./ozellikler</a>
+      <a href="#mobil">./mobil</a>
+      <a href="#uyum">./uyum</a>
+    </nav>
+    <a href="#demo" class="btn btn--solid btn--sm">&gt; demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero wrap">
+    <pre class="boot" id="boot" aria-hidden="true"></pre>
+
+    <pre class="logo logo--wide" aria-hidden="true"> ██████╗  █████╗ ██╗     ███████╗██████╗ ██╗
+██╔════╝ ██╔══██╗██║     ██╔════╝██╔══██╗██║
+██║  ███╗███████║██║     █████╗  ██████╔╝██║
+██║   ██║██╔══██║██║     ██╔══╝  ██╔══██╗██║
+╚██████╔╝██║  ██║███████╗███████╗██║  ██║██║
+ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝
+<span class="acc">██████╗ ██╗██╗   ██╗ █████╗ ███████╗ █████╗
+██╔══██╗██║╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗
+██████╔╝██║ ╚████╔╝ ███████║███████╗███████║
+██╔═══╝ ██║  ╚██╔╝  ██╔══██║╚════██║██╔══██║
+██║     ██║   ██║   ██║  ██║███████║██║  ██║
+╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝</span></pre>
+    <pre class="logo logo--narrow" aria-hidden="true"> ██████╗ ██████╗
+██╔════╝ ██╔══██╗
+██║  ███╗██████╔╝
+██║   ██║██╔═══╝
+╚██████╔╝██║
+ ╚═════╝ ╚═╝</pre>
+
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="kicker">// SAHİBİNDEN + ARABAM · APIFY · 30 SN</p>
+        <h1>Alacağın araç piyasanın <span class="acc">kaç parası?</span></h1>
+        <p class="lead">İki siteden ilanları toplar; medyan fiyatı, p25–p75 bandını ve “bu araç kaç para” aralığını 30 saniyede verir. Galericiler için, telefondan.</p>
+        <div class="cta">
+          <a href="#demo" class="btn btn--solid">$ analiz_et --demo</a>
+          <a href="#mobil" class="btn btn--line">uygulamayı indir_</a>
+        </div>
+        <p class="fine">kayıt gerekmez · kayıt yalnız garaj ve fiyat alarmı için</p>
+      </div>
+
+      <div class="panel" aria-label="Örnek analiz: Fiat Egea 2018–2023">
+        <div class="panel__bar"><span>analiz://fiat-egea · 2018–2023</span><span class="acc">● demo verisi</span></div>
+        <div class="panel__body">
+          <div class="stats">
+            <div class="stat"><p class="stat__k">MEDYAN</p><p class="stat__v acc" id="h-median">860.000 ₺</p></div>
+            <div class="stat"><p class="stat__k">İLAN</p><p class="stat__v" id="h-count">447</p><p class="stat__s" id="h-sources">sahibinden · arabam</p></div>
+          </div>
+          <pre class="histo" id="histo" role="img" aria-label="Fiyat dağılımı histogramı"></pre>
+          <p class="band">bant p25–p75 · <b id="h-band">750.000 – 975.000 ₺</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true"><div class="ticker__track" id="ticker"></div></div>
+
+  <!-- ROAD -->
+  <div class="road" aria-hidden="true">
+    <pre class="car">   ______
+ _/__|__\__
+(_o____o__)=</pre>
+    <pre class="road__line">════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════</pre>
+  </div>
+
+  <!-- DEMO -->
+  <section id="demo" class="wrap section">
+    <h2>## canlı demo <span class="muted">— bu araç kaç para?</span></h2>
+    <p class="muted">Uygulamadaki benzerlik kuralı, tarayıcında: aynı versiyon + aynı yıl + km ±%15 + aynı hasar grubu. Yetersiz örnekte kural sırayla gevşetilir ve söylenir.</p>
+    <div class="term">
+      <div class="term__bar"><span class="dots"><i></i><i></i><i></i></span><span>~/galeri_piyasa — bash</span><span class="muted" id="t-data">demo veri yükleniyor…</span></div>
+      <form class="term__form" id="estimate">
+        <p class="prompt"><span class="acc">galerici@piyasa</span>:<span class="dim">~</span>$ bu_arac_kac_para</p>
+        <div class="flags">
+          <label><span>--yil</span><select id="f-yil" required></select></label>
+          <label><span>--km</span><input id="f-km" inputmode="numeric" autocomplete="off" value="95.000" required></label>
+          <label><span>--hasar</span>
+            <select id="f-hasar">
+              <option value="0">temiz</option>
+              <option value="1">boyalı</option>
+              <option value="2">değişen</option>
+              <option value="3">tramer kayıtlı</option>
+              <option value="4">ağır hasar</option>
+            </select>
+          </label>
+          <label><span>--versiyon</span><select id="f-ver"><option value="">farketmez</option></select></label>
+        </div>
+        <button class="btn btn--solid" type="submit">↵ çalıştır</button>
+      </form>
+      <pre class="term__out" id="t-out" aria-live="polite"></pre>
+    </div>
+    <p class="fine">Veri: uygulamanın demo modu (MOCK) — gerçek ilanlar değildir. Canlı modda aynı hesap sahibinden + arabam ilanlarıyla yapılır.</p>
+  </section>
+
+  <!-- HOW -->
+  <section id="nasil" class="band-bg">
+    <div class="wrap section">
+      <h2>## nasıl çalışır</h2>
+<pre class="diagram" role="img" aria-label="Akış: kriter, iki site paralel taranır, normalize edilir, istatistik çıkar">┌──────────────┐      ┌───────────────────────┐      ┌────────────────┐      ┌──────────────────┐
+│  <b>[01] kriter</b> │      │  <b>[02] apify</b> (paralel)  │      │ <b>[03] normalize</b> │      │  <b>[04] karar</b>      │
+│ marka/model  │ ───▶ │  ├─ sahibinden.com    │ ───▶ │ TL · km · yıl  │ ───▶ │ medyan · p25–p75 │
+│ yıl · km     │      │  └─ arabam.com        │      │ hasar · dedup  │      │ kaç para aralığı │
+│ hasar · şehir│      │   3 deneme → yedek    │      │ KVKK filtresi  │      │ fiyat alarmı %3  │
+└──────────────┘      └───────────────────────┘      └────────────────┘      └──────────────────┘
+                                  │
+                                  └── aynı sorgu 24 saat içinde → <b>önbellek</b> (maliyet: 0)</pre>
+      <div class="steps">
+        <div class="step"><p class="step__t">[01] kriter seç</p><p>Marka → model → versiyon, yıl, km, hasar, şehir. Hazır şablonlar: “Dizel 2018+ sedanlar”.</p></div>
+        <div class="step"><p class="step__t">[02] iki site paralel</p><p>sahibinden ve arabam ilanları Apify ile toplanır; actor çökerse 3 deneme, sonra yedek actor.</p></div>
+        <div class="step"><p class="step__t">[03] karar ver</p><p>Medyan, bant, aynı yıl ±%10 km medyanı ve %5 altı alış / %5 üstü satış aralığı tek ekranda.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="ozellikler" class="wrap section">
+    <h2>## özellikler</h2>
+    <div class="cards">
+      <article class="card card--hot">
+<pre aria-hidden="true">  ▁▃▅▇█▇▅▃▁
+  p25 ┊ p75</pre>
+        <h3>piyasa_ara</h3><p>Fiyat histogramı ve km–fiyat serpme grafiği; hasarlı ilanlar ayrı renkte, kaynak etiketli ilan listesi.</p>
+      </article>
+      <article class="card card--hot">
+<pre aria-hidden="true">  [?] → ███ ₺
+  ±%5 al/sat</pre>
+        <h3>bu_arac_kac_para</h3><p>Yıl + km + hasar gir; benzer ilanlara göre alış–satış aralığı ve tahmini ilan süresi.</p>
+      </article>
+      <article class="card">
+<pre aria-hidden="true">  ┌─┬─┬─┐ kaput
+  │B│D│O│ tampon</pre>
+        <h3>garajim</h3><p>Fotoğraf, parça parça boya / lokal boya / değişen kaydı, tramer, alış ve hedef fiyat.</p>
+      </article>
+      <article class="card">
+<pre aria-hidden="true">  mağaza.url
+     └─▶ [garaj]</pre>
+        <h3>magazamdan_getir</h3><p>Mağaza profil adresini gir; açık ilanların onaylı olarak garaja aktarılsın. Şifre istenmez.</p>
+      </article>
+      <article class="card">
+<pre aria-hidden="true">  medyan Δ ≥ %3
+     └─▶ [!] bildirim</pre>
+        <h3>fiyat_alarmi</h3><p>Aramayı takibe al; her gün ucuz özet modda yeniden hesaplanır, medyan oynarsa haber verir.</p>
+      </article>
+      <article class="card">
+<pre aria-hidden="true">  $ ▮▮▮▮▮▯▯▯ bütçe
+  24s önbellek</pre>
+        <h3>maliyet_korumasi</h3><p>Site başına ilan tavanı, 24 saat önbellek, aylık bütçe eşiği ve yönetici onayı.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MOBILE -->
+  <section id="mobil" class="band-bg">
+    <div class="wrap section mobile">
+      <div class="mobile__copy">
+        <h2>## cebinde piyasa</h2>
+        <p class="muted">iOS ve Android uygulaması aynı veriyle çalışır: kameradan araç fotoğrafı, parça parça hasar kaydı, garaj kartında piyasa konumu, takip edilen aramalar.</p>
+        <div class="cta">
+          <span class="btn btn--solid is-static">[ App Store ]</span>
+          <span class="btn btn--solid is-static">[ Google Play ]</span>
+        </div>
+        <p class="fine">[MAĞAZA BAĞLANTILARI YAYINDA EKLENECEK]</p>
+      </div>
+<pre class="phone" aria-hidden="true">╭────────────────────────╮
+│ 9:41            ▮▮▮ ◔  │
+├────────────────────────┤
+│ <span class="acc">&gt;</span> garajim              │
+│                        │
+│  <b>Honda Civic</b> 2022      │
+│  114.500 km · değişen  │
+│ ┌──────────┬─────────┐ │
+│ │ MEDYAN   │ <span class="acc">ÖNERİLEN</span>│ │
+│ │ 1.265B ₺ │ <span class="acc">1.330B ₺</span>│ │
+│ └──────────┴─────────┘ │
+│  hedef medyanın +%4,7  │
+│                        │
+│ <span class="inv"> &gt; yeniden_karşılaştır </span> │
+│                        │
+├────────────────────────┤
+│  ara  analiz <span class="acc">garaj</span>  ⚙  │
+╰────────────────────────╯</pre>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section id="uyum" class="wrap section">
+    <h2>## uyum &amp; güven</h2>
+<pre class="checks">[<span class="acc">✓</span>] satıcı telefonu ve ad-soyad veritabanına yazılmaz (KVKK)
+[<span class="acc">✓</span>] sahibinden / arabam şifresi hiçbir zaman istenmez — hesap bağlama = mağaza adresi
+[<span class="acc">✓</span>] ilan metni ve fotoğrafı yeniden yayınlanmaz — yalnız iç analiz
+[<span class="acc">✓</span>] her analizde kaynak atfı: “Veri: sahibinden.com &amp; arabam.com üzerinden Apify”</pre>
+  </section>
+
+  <section class="wrap section final">
+<pre class="final__box" aria-hidden="true">┌──────────────────────────────────────────────┐
+│                                              │
+│   piyasa 30 saniyede, cebinde.               │
+│                                              │
+└──────────────────────────────────────────────┘</pre>
+    <a href="#demo" class="btn btn--solid">$ analiz_et --demo</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>veri: sahibinden.com &amp; arabam.com üzerinden Apify</span>
+    <span><a href="https://github.com/mfos3c/gallery-landing" rel="noopener">github</a> · © <span id="year">2026</span> galeri_piyasa</span>
+  </div>
+</footer>
+
+<script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  // Statik assets Worker'ı — kod yok, yalnızca public/ servis edilir.
+  "$schema": "https://unpkg.com/wrangler@4.149.0/config-schema.json",
+  "name": "gallery-landing",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "gallery.mfosec.xyz", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}
