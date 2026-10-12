@@ -20,11 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Cloudflare token kontrolü
+      - name: Check Cloudflare token
         if: env.HAS_TOKEN != 'true'
-        run: echo "::warning::CLOUDFLARE_API_TOKEN secret'ı yok — deploy atlandı. README'deki adımları izleyin."
+        run: echo "::warning::CLOUDFLARE_API_TOKEN secret is missing — deploy skipped. See the README."
 
-      - name: Cloudflare Workers'a deploy (gallery.mfosec.xyz)
+      - name: Deploy to Cloudflare Workers (gallery.mfosec.xyz)
         if: env.HAS_TOKEN == 'true'
         uses: cloudflare/wrangler-action@v4
         with:

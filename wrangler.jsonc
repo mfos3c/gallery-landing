@@ -1,5 +1,5 @@
 {
-  // Statik assets Worker'ı — kod yok, yalnızca public/ servis edilir.
+  // Static-assets Worker — no code, serves public/ only.
   "$schema": "https://unpkg.com/wrangler@4.149.0/config-schema.json",
   "name": "gallery-landing",
   "compatibility_date": "2026-10-01",

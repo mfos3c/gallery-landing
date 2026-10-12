@@ -1,29 +1,29 @@
 # gallery-landing
 
-[Galeri Piyasa](https://gallery.mfosec.xyz) tanıtım sayfası — ASCII / terminal teması (siyah zemin, sarı-yeşil vurgu), uygulamayla aynı tasarım dili.
+Landing page for **[Galeri Piyasa](https://gallery.mfosec.xyz)** — market price intelligence for Turkish car dealers. ASCII / terminal theme (black background, yellow-green accents), same design language as the app.
 
-- Bağımlılıksız statik site: `public/index.html`, `public/style.css`, `public/app.js`
-- **Canlı demo**: “bu_arac_kac_para” terminali, uygulamadaki tahmin mantığını (aynı versiyon + yıl + km ±%15 + hasar grubu, gerekirse gevşetme) tarayıcıda `public/demo-egea.json` üzerinde çalıştırır. Veri uygulamanın MOCK üreticisinden gelir; gerçek ilan değildir.
-- Yayın: Cloudflare Workers (statik assets) + custom domain `gallery.mfosec.xyz` (`wrangler.jsonc`).
+- Dependency-free static site: `public/index.html`, `public/style.css`, `public/app.js`
+- **Live demo**: the `whats_it_worth` terminal runs the app's estimate logic in the browser (same trim + same year + mileage ±15% + same damage group, relaxed step by step when there are fewer than 5 matches) on `public/demo-egea.json`. The data comes from the app's mock generator — not real listings.
+- Hosting: Cloudflare Workers (static assets) on the custom domain `gallery.mfosec.xyz` (`wrangler.jsonc`).
 
-## Yerel önizleme
+## Local preview
 
 ```bash
-npx wrangler dev        # veya: python3 -m http.server -d public 4500
+npx wrangler dev        # or: python3 -m http.server -d public 4500
 ```
 
 ## Deploy (GitHub Actions)
 
-`main`'e her push `.github/workflows/deploy.yml` ile deploy edilir. Bir kerelik kurulum:
+Every push to `main` deploys via `.github/workflows/deploy.yml`. One-time setup:
 
-1. Cloudflare → **Account API tokens** → **Create Token** → şablon **Edit Cloudflare Workers**; hesap = kendi hesabın, zone = `mfosec.xyz`.
-2. Repo secret'ları:
+1. Cloudflare → **Account API tokens** → **Create Token** → template **Edit Cloudflare Workers**; account = yours, zone = `mfosec.xyz`.
+2. Repository secrets:
    ```bash
-   gh secret set CLOUDFLARE_API_TOKEN      # token'ı yapıştır
-   gh secret set CLOUDFLARE_ACCOUNT_ID     # isteğe bağlı (token tek hesaba bağlıysa gerekmez)
+   gh secret set CLOUDFLARE_API_TOKEN      # paste the token
+   gh secret set CLOUDFLARE_ACCOUNT_ID     # optional (not needed if the token is scoped to one account)
    ```
-3. `gh workflow run deploy` (veya bir push). İlk deploy custom domain'i, DNS kaydını ve sertifikayı otomatik oluşturur.
+3. `gh workflow run deploy` (or push). The first deploy creates the custom domain, its DNS record and the certificate automatically.
 
-## Demo verisini yenileme
+## Refreshing the demo data
 
-Ana uygulama reposunda: `npx tsx scripts/export-landing-demo.ts` → üretilen `landing/public/demo-egea.json` bu repoya kopyalanır.
+In the main app repo: `npx tsx scripts/export-landing-demo.ts`, then copy the generated `landing/public/demo-egea.json` here.
